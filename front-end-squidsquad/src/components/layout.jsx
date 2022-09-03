@@ -5,7 +5,7 @@ const Layout = (props) => (
   <>
     <main>
       <Header />
-      <div className='container'>{props.children}</div>
+        <div className='container'>{props.children}</div>
       <Footer />
     </main>
     
@@ -15,8 +15,11 @@ const Layout = (props) => (
         outline: none;
       }
       .container {
-        max-wdith: 3200px;
-        background-color: #14021c;
+        max-wdith: auto;
+        max-height: auto;
+        background-color: #14021c;   
+        color: white;  
+        padding-right: 25px;                                   
       }
     `}</style>
   </>

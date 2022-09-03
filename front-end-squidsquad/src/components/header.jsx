@@ -88,7 +88,7 @@ const Header = () => {
             <div id='auth' className="wallet-buttons">
                 {/* <img src={MetamaskLogo} alt="meta mask logo" /> */}
                 <button className="app-buttons__login" onClick={onConnect}>
-                    Connect metamask
+                    connect metamask
                 </button>
             </div>
         )}
@@ -96,7 +96,7 @@ const Header = () => {
             <div className="wallet-buttons">
             <h3>✅ You are connected with metamask.</h3>
             <button className="app-buttons__logout" onClick={onDisconnect}>
-                Disconnect
+                disconnect
             </button>
             </div> 
         )}
@@ -105,6 +105,11 @@ const Header = () => {
                     <li id='nav-li'>
                     <button id='navbtn' color='primary' size='sm' onClick={() => { history.push('/home'); window.location.reload(); }}>
                         home
+                    </button>
+                    </li>
+                    <li id='nav-li'>
+                    <button id='navbtn' color='primary' size='sm' onClick={() => { history.push('/artist'); window.location.reload(); }}>
+                        artist
                     </button>
                     </li>
                     <li id='nav-li'>
@@ -173,10 +178,13 @@ const Header = () => {
         #nav-ul {
             display: flex;
             list-style: none;
+            justify-content: center;  
+            padding-right: 40px;
         }
         #nav-li {
-            margin-right: 0.15%;
-            margin-left: 0.15%;
+            margin-right: 1.15%;
+            margin-left: 1.15%;
+            
         }
         #navbtn {
             background-color: #86fce5;
@@ -197,7 +205,7 @@ const Header = () => {
             background-image: url("https://images2.imgbox.com/76/d4/03tsJWwZ_o.jpg");
             border-style: solid;
             border-width: 25px;
-           border-color: #14021c;
+            border-color: #14021c;
         }
 }
       `}</style>
