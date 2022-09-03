@@ -15,7 +15,8 @@ const Layout = (props) => (
         outline: none;
       }
       .container {
-        max-width: auto;
+        max-wdith: 3200px;
+        background-color: #14021c;
       }
     `}</style>
   </>

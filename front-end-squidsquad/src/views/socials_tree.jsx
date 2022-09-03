@@ -4,6 +4,18 @@ import React from 'react'
 
 export default function Socials() {
   return (
-    <div>Socials</div>
+    <>
+      <div id='main-content'>
+      Socials
+    </div>
+    <style>{`
+        #main-content {
+       
+            height: 400px;
+        }
+
+      `}</style>
+    </>
+      
   )
 }
