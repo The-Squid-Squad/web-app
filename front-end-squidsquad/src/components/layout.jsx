@@ -19,7 +19,8 @@ const Layout = (props) => (
         max-height: auto;
         background-color: #14021c;   
         color: white;  
-        padding-right: 25px;                                   
+        padding-right: 25px;  
+        padding-top: 55px;                                 
       }
     `}</style>
   </>

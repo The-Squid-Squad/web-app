@@ -27,7 +27,7 @@ export default function Socials() {
       </div>
       <style>{`
         #main-content {
-          height: 900px;
+          height: 700px;
           display: flex;
           justify-content: center;   
         }
@@ -48,6 +48,7 @@ export default function Socials() {
         #follow-me {
           height: 320px;
           width: 520px;
+          margin-left: 50px;
         }
 
       `}</style>

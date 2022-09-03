@@ -84,23 +84,38 @@ const Header = () => {
     <div id='header-wrapper'>
         <div id='header-background'>
         {/* <a href='/home'><img id="logo" src={SquidLogo} alt="Logo-home"></img></a> */}
-        {!isConnected && (
-            <div id='auth' className="wallet-buttons">
-                {/* <img src={MetamaskLogo} alt="meta mask logo" /> */}
-                <button className="app-buttons__login" onClick={onConnect}>
-                    connect metamask
-                </button>
-            </div>
-        )}
-        {isConnected && (
-            <div className="wallet-buttons">
-            <h3>✅ You are connected with metamask.</h3>
-            <button className="app-buttons__logout" onClick={onDisconnect}>
-                disconnect
-            </button>
-            </div> 
-        )}
+
             <nav>
+            
+            {!isConnected && (
+                      <div id='auth' className="wallet-buttons">
+                          {/* <img src={MetamaskLogo} alt="meta mask logo" /> */}
+                          <button className="app-buttons__login" onClick={onConnect}>
+                              connect metamask
+                          </button>
+                      </div>
+                    )}
+                    {isConnected && (
+                        <div className="wallet-buttons">
+                       
+                        <button className="app-buttons__logout" onClick={onDisconnect}>
+                            disconnect
+                        </button>
+                        <h3>✅ You are connected with metamask.</h3>
+                        </div> 
+                    )}
+                    {/* {isConnected && (     
+                      <div className="app-details">
+                          <div className="app-account">
+                          <span>Account number:</span>
+                          {userInfo.account}
+                          </div>
+                          <div className="app-connectionid">
+                          <span>Connection ID:</span>
+                          {userInfo.connectionid}
+                          </div>
+                      </div>  
+                    )} */}
                 <ul id='nav-ul'>
                     <li id='nav-li'>
                     <button id='navbtn' color='primary' size='sm' onClick={() => { history.push('/home'); window.location.reload(); }}>
@@ -114,7 +129,7 @@ const Header = () => {
                     </li>
                     <li id='nav-li'>
                     <button id='navbtn' color='primary' size='sm' onClick={() => {history.push('/minting'); window.location.reload(); }}>
-                        mint NFT
+                        mint
                     </button>
                     </li>
                     <li id='nav-li'>
@@ -127,26 +142,14 @@ const Header = () => {
                         socials
                     </button>
                     </li>
+
+        
                 </ul> 
+                
             </nav>
             
         </div>
-            {isConnected && (     
-              <div className="app-details">
-                  <div className="app-account">
-                  <span>Account number:</span>
-                  {userInfo.account}
-                  </div>
-                  <div className="app-balance">
-                  <span>Balance:</span>
-                  {userInfo.balance}
-                  </div>
-                  <div className="app-connectionid">
-                  <span>Connection ID:</span>
-                  {userInfo.connectionid}
-                  </div>
-              </div>  
-            )}
+           
     </div>
       
       <style>{`
@@ -157,7 +160,7 @@ const Header = () => {
         }
         .app-buttons__login {
             font-size: 21px;
-            float: right;  
+           
             background-color: #ed9624;   
             color: white;  
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -170,25 +173,29 @@ const Header = () => {
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
         .app-details {
-            text-align: center;
+            float: right; 
         }
         nav {
-            margin-top: 300px;
+            margin-top: 299px;
+        
         }
         #nav-ul {
             display: flex;
             list-style: none;
-            justify-content: center;  
-            padding-right: 40px;
+            justify-content: right;  
+            margin-left: 195px;
+            margin-right: 70px;
+          
+           
         }
         #nav-li {
-            margin-right: 1.15%;
-            margin-left: 1.15%;
+            margin-right: 1.1%;
+            margin-left: 1.1%;
             
         }
         #navbtn {
             background-color: #86fce5;
-            font-size: 21px;
+            font-size: 18px;
             border-color: #00ffd5;
             border-radius: 8px;
             opacity: 0.8;

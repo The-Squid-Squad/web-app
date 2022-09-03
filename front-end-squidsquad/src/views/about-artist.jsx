@@ -11,29 +11,29 @@ export default function AboutArtist() {
         <img id='artist-title' src="https://images2.imgbox.com/87/da/jcxb34U7_o.png" alt="titles" />
         <p id='artist-title'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <div className='column'>
-        
-      </div>
+
     </div> 
       <style>{`
       #artist-img {
         height: 500px;
         width: 500px;
-        display: flex;
-        justify-content: center; 
+       
       }
       #artist-title {
         height: 300px;
         width: 400px;
         display: flex;
-        margin-left: auto;
+        margin-left: 45px;
         margin-right: 100px;
       }
       .column {
       float: right;
       width: 33.33%;
       padding: 5px;
-    }
+      }
+      .row {
+        
+      }
 
     /* Clear floats after image containers */
     .row::after {
