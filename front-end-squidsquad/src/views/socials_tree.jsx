@@ -27,7 +27,7 @@ export default function Socials() {
       </div>
       <style>{`
         #main-content {
-          height: 700px;
+          height: 1100px;
           display: flex;
           justify-content: center;   
         }

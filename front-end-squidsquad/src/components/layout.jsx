@@ -22,6 +22,7 @@ const Layout = (props) => (
         padding-right: 25px;  
         padding-top: 55px;                                 
       }
+      
     `}</style>
   </>
 );

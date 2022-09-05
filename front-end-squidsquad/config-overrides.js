@@ -16,6 +16,9 @@ module.exports = function override(config, env) {
             Buffer: ['buffer', 'Buffer'],
         }),
     );
+    config.experiments = {
+        topLevelAwait: true
+      }
 
     return config;
 }

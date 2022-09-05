@@ -27,7 +27,7 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
         <DateTimeDisplay value={minutes} type={'Mins'} isDanger={false} />
         <p>:</p>
         <DateTimeDisplay value={seconds} type={'Seconds'} isDanger={false} />
-        <p>utill new collections released!</p>
+        <p id='untill'>utill the new collection is released!</p>
       </a>
     </div>
   );
@@ -49,7 +49,7 @@ const CountdownTimer = ({ targetDate }) => {
         .expired-notice {
             text-align: center;
             padding: 2rem;
-            border: 1px solid #ebebeb;
+            border: 2px solid #07e8e8;
             border-radius: 0.25rem;
             margin: 0.5rem;
         }
@@ -73,7 +73,7 @@ const CountdownTimer = ({ targetDate }) => {
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1.25rem;
             line-height: 1.75rem;
             padding: 0.5rem;
@@ -103,6 +103,9 @@ const CountdownTimer = ({ targetDate }) => {
         text-transform: uppercase;
         font-size: 0.75rem;
         line-height: 1rem;
+        }
+        #untill {
+            padding-left: 21px;
         }
 
       `}</style></>

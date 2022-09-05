@@ -86,36 +86,6 @@ const Header = () => {
         {/* <a href='/home'><img id="logo" src={SquidLogo} alt="Logo-home"></img></a> */}
 
             <nav>
-            
-            {!isConnected && (
-                      <div id='auth' className="wallet-buttons">
-                          {/* <img src={MetamaskLogo} alt="meta mask logo" /> */}
-                          <button className="app-buttons__login" onClick={onConnect}>
-                              connect metamask
-                          </button>
-                      </div>
-                    )}
-                    {isConnected && (
-                        <div className="wallet-buttons">
-                       
-                        <button className="app-buttons__logout" onClick={onDisconnect}>
-                            disconnect
-                        </button>
-                        <h3>✅ You are connected with metamask.</h3>
-                        </div> 
-                    )}
-                    {/* {isConnected && (     
-                      <div className="app-details">
-                          <div className="app-account">
-                          <span>Account number:</span>
-                          {userInfo.account}
-                          </div>
-                          <div className="app-connectionid">
-                          <span>Connection ID:</span>
-                          {userInfo.connectionid}
-                          </div>
-                      </div>  
-                    )} */}
                 <ul id='nav-ul'>
                     <li id='nav-li'>
                     <button id='navbtn' color='primary' size='sm' onClick={() => { history.push('/home'); window.location.reload(); }}>
@@ -141,17 +111,12 @@ const Header = () => {
                     <button id='navbtn' color='primary' size='sm' onClick={() => {history.push('/socials'); window.location.reload(); }}>
                         socials
                     </button>
-                    </li>
-
-        
-                </ul> 
-                
-            </nav>
-            
-        </div>
-           
+                    </li> 
+                </ul>              
+            </nav>      
+        </div>      
     </div>
-      
+  
       <style>{`
         .wallet-buttons {
             padding-right: 21px;

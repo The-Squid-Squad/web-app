@@ -9,6 +9,7 @@ import Gallery from './views/gallery';
 import Minting from './views/minting';
 import Socials from './views/socials_tree';
 
+
 function App() {
   return (
     <Layout>
