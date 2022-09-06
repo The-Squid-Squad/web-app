@@ -8,15 +8,13 @@ export default function Home() {
 
   return (
     <>
-      <div id='landing-wrapper'>
-
-        <div id='landing-main'>
+            <div id='landing-main'>
           <h2>Squid Squad!</h2>
           <h3>Official launch in..</h3>
           <img id='countdown-squid' src='https://images2.imgbox.com/d9/db/nwjDzc1m_o.png'></img>
           <CountdownTimer targetDate={dateTimeLeft} />
         </div>
-
+      <div id='landing-wrapper'>
         <div id='landing-about' class="row">
           <div className="column">
             <img id='landing-about-img' src="https://images2.imgbox.com/63/f9/aQx8rL2a_o.jpg" alt="Squid Squad" />
@@ -24,20 +22,22 @@ export default function Home() {
           <div className="column">
             <h3 id='landing-desc'>More then art, your squids are companions into the metaverse!</h3>
             <p id='landing-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-           
             <p id='landing-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
         </div> 
+      </div>
 
-        <div id='landing-news'>
+      <div id='landing-news'>
           <h3>News</h3>
           <p>(Add content section here)</p>
         </div>
-      </div>
-
       <style>{`
         #landing-wrapper {
-        
+          width: auto;
+          height: auto;
+          display: flex;
+          justify-content: center; 
+          padding-right: 5%;
         }
         #landing-main {
           height: 350px;
@@ -47,7 +47,13 @@ export default function Home() {
         }
         #landing-about {
           padding-top: 12rem;
+          padding-bottom: 30px;
           height: auto;
+        }
+        #landing-about-img {
+          margin-left: 30px;
+          height: 600px;
+          width: 440px;
         }
         #countdown-squid {
           height: 212px;
@@ -55,7 +61,7 @@ export default function Home() {
         }
         .column {
           float: left;
-          width: 33.33%;
+          width: 40.33%;
           padding: 5px;
         }
         .row {
@@ -74,16 +80,9 @@ export default function Home() {
           }
         }
 
-        #landing-about-img {
-          height: 600px;
-          width: 440px;
-          
-        }
-
         #landing-desc {
-          padding-top: 35px;
-          padding-left: 60px;
-          margin-top: 20px;
+          padding-left: 70px;
+          padding-right: 70px;
         }
 
       `}</style>
