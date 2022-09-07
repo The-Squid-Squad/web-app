@@ -29,21 +29,26 @@ const ownerAddr = "0xC0B3bb3cE7317782c83C0B79F512f01AFD729666"; // I should dyna
 
 
 export default function Gallery() {
-  // const [allnfts, setAllfts ] = useState([]);
+  const [allnfts, setAllfts ] = useState([]);
 
-//   let SquidSquadNFTs = await alchemy.nft
-//   .getNftsForContract("0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb")
+  const getNFTs = async () => {
+    let SquidSquadNFTs = await alchemy.nft.getNftsForContract("0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb")  
+    let nft
+    for(let i =0; i < SquidSquadNFTs.nfts.length; i++){
+      let id = SquidSquadNFTs.nfts[i].tokenId
+      nft = alchemy.nft.getNftMetadata(
+        "0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb",
+        `${id}`
+      )//.then();
+      console.log(nft)
+    
+    }
+    return nft
+  }
 
-// for(let i =0; i < SquidSquadNFTs.nfts.length; i++){
-//   let id = SquidSquadNFTs.nfts[i].tokenId
-//   let nft
-//   nft = alchemy.nft.getNftMetadata(
-//     "0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb",
-//     `${id}`
-//   )//.then();
-//   console.log(nft)
+  let NFTS = getNFTs();
 
-// }
+  console.log(NFTS)
 
   return (
     <>
