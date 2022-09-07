@@ -11,14 +11,15 @@ const alchemy = new Alchemy(settings)
 export default function Gallery() {
   const [allnfts, setAllfts ] = useState([]);
   const [update, setUpdate ] = useState(1);
+
   const getNFTs = async () => {
-    let SquidSquadNFTs = await alchemy.nft.getNftsForContract("0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb") 
+    let SquidSquadNFTs = await alchemy.nft.getNftsForContract("0xcfC64FcEa7507F9E31a74A49884741BCD5E0A25A") 
 
     let nfts = []
-    for(let i = 0; i < 5; i++){ // SquidSquadNFTs.nfts.length-1
+    for(let i = 0; i < 10; i++){ // SquidSquadNFTs.nfts.length-1
       let id = SquidSquadNFTs.nfts[i].tokenId
       alchemy.nft.getNftMetadata(
-        "0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb",
+        "0xcfC64FcEa7507F9E31a74A49884741BCD5E0A25A",
         `${id}`
       )
       .then(res => {
@@ -29,18 +30,21 @@ export default function Gallery() {
     console.log(nfts)
     return nfts
   }
-
-  useEffect(() => {
-    
+  useEffect(() => { 
+    getNFTs()
+  },[]); 
+  useEffect(() => { 
     setTimeout(() => {
       console.log("uodated")
       setUpdate(update + 1)
     }, 1000);
   });  
+
   return ( 
     <>
       <div id='gallery-container'>
-      <button onClick={getNFTs}>Get NFTs</button>
+      <p>search coming soon</p>
+      <button onClick={getNFTs} disabled={true}>Search NFTs</button>
       <div class="row">
         {allnfts.map(nft => {
           return (
@@ -66,8 +70,8 @@ export default function Gallery() {
         #nft-card {
           height: 400px;
           width: 300px;
-          padding-left 5%;
-          padding-right: 5%;
+          padding-left 12%;
+          padding-right: 12%;
           padding-top: 5%
   
         }
