@@ -6,7 +6,7 @@ export default function AboutArtist() {
     <div id='contain'>
       <div class="row">
         <div className="column">
-          <img id='artist-img' src="https://scontent.fcxh3-1.fna.fbcdn.net/v/t39.30808-6/274923720_10218520854807433_8960867018370807852_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=GRjKByTDQcIAX_3asAl&_nc_ht=scontent.fcxh3-1.fna&oh=00_AT-OLsSOA24BGBGOGyT23w0574px31_UzUUfuQk9XSmJ_g&oe=63179690" alt="Squid Maid" />
+          <img id='artist-img' src="https://images2.imgbox.com/91/dd/2IrXhhdD_o.jpg" alt="Squid Maid" />
         </div>
         <div id='spacer' className="column">
           
