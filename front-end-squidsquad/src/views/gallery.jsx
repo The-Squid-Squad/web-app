@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Network, Alchemy} from  "alchemy-sdk";
 
 const settings = {
@@ -8,68 +8,99 @@ const settings = {
 
 const alchemy = new Alchemy(settings)
 
-const ownerAddr = "0xC0B3bb3cE7317782c83C0B79F512f01AFD729666"; // I should dynamically set this for users or set contract address for queries.
-
-
-// Print total NFT count returned in the response:
-// const nftsForOwner = await alchemy.nft.getNftsForOwner(ownerAddr);
-// console.log("number of NFTs found:", nftsForOwner.totalCount);
-
-// Print contract address and tokenId for each NFT:
-// for (const nft of nftsForOwner.ownedNfts) {
-//   console.log("===");
-//   console.log("contract address:", nft.contract.address);
-//   console.log("token ID:", nft.tokenId);
-// }
-
-
-// console.log(nft.token.Uri.gateway)
-// console.log(nft.desciption) 
-// console.log(SquidSquadNFTs.nfts)
-
-
 export default function Gallery() {
   const [allnfts, setAllfts ] = useState([]);
-
+  const [update, setUpdate ] = useState(1);
   const getNFTs = async () => {
-    let SquidSquadNFTs = await alchemy.nft.getNftsForContract("0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb")  
-    let nft
-    for(let i =0; i < SquidSquadNFTs.nfts.length; i++){
+    let SquidSquadNFTs = await alchemy.nft.getNftsForContract("0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb") 
+
+    let nfts = []
+    for(let i = 0; i < 5; i++){ // SquidSquadNFTs.nfts.length-1
       let id = SquidSquadNFTs.nfts[i].tokenId
-      nft = alchemy.nft.getNftMetadata(
+      alchemy.nft.getNftMetadata(
         "0x0AEF62758BB6Cc86198EC4E891d4A6e3F7bc7ceb",
         `${id}`
-      )//.then();
-      console.log(nft)
-    
+      )
+      .then(res => {
+        nfts.push(res)
+      })
     }
-    return nft
+    setAllfts(nfts)
+    console.log(nfts)
+    return nfts
   }
 
-  let NFTS = getNFTs();
-
-  console.log(NFTS)
-
-  return (
+  useEffect(() => {
+    
+    setTimeout(() => {
+      console.log("uodated")
+      setUpdate(update + 1)
+    }, 1000);
+  });  
+  return ( 
     <>
-      <div>
-        {/* {nft.map(nft => {
-        console.log(nft.title)
-        console.log(nft.token.Uri.gateway)
-        console.log(nft.desciption)
-       
+      <div id='gallery-container'>
+      <button onClick={getNFTs}>Get NFTs</button>
+      <div class="row">
+        {allnfts.map(nft => {
           return (
-          <div>
-            <h2>name: {nft.title}</h2>
-            <img src={nft.token.Uri.gateway} alt='missing'></img>
-            <p>country: {nft.desciption}</p>
-
-            <hr />
-          </div>
-          );
-   
-      })} */}
+            <>
+              <div id='nft-card' className="column">
+                <h2>name: {nft.title?nft.title:"no title"}</h2>
+                 {nft.media.length > 0 &&
+                <img id='nft-img' src={nft.media[0].gateway?nft.media[0].gateway:"https://image.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1732584296.jpg"} alt='missing'></img> }
+                 <p>desc: {nft.description}</p>
+                 <p>owned by: </p> 
+                 <hr />
+               </div>  
+            </>  
+          ); 
+        })} 
       </div>
+      </div>
+
+      <style>{`
+        #gallery-container {
+          padding-bottom: 300px;
+        }
+        #nft-card {
+          height: 400px;
+          width: 300px;
+          padding-left 5%;
+          padding-right: 5%;
+          padding-top: 5%
+  
+        }
+        h2 {
+          
+        }
+        #nft-img {
+          width: 300px;
+          height: 300px;
+          padding: 8px;
+        } 
+        .column {
+          float: right;
+          width: 25.33%;
+          padding: 5px;
+        }
+        .row {
+
+        
+        }
+
+        /* Clear floats after image containers */
+        .row::after {
+          content: "";
+          clear: both;
+          display: table; 
+        }
+        @media screen and (max-width: 900px) {
+          .column {
+            width: 90%;
+          }
+        }
+      `}</style>
     </>
   )
 }

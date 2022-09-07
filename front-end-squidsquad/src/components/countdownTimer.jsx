@@ -42,9 +42,19 @@ const CountdownTimer = ({ targetDate }) => {
     );
   });
   return (
-    <div>
-      {timerComponents.length ? timerComponents : <span>We are live!</span>}
-    </div>
+    <>
+      <div id='clock'>
+        {timerComponents.length ? timerComponents : <span>We are live!</span>}
+      </div>
+      <style>{`
+        #clock {
+          color: blue;
+          font-size: 21px;
+        }
+
+      `}</style>
+    </>
+
   )
 };
 
