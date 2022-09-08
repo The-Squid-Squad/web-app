@@ -8,7 +8,10 @@ module.exports = function override(config, env) {
         buffer: require.resolve('buffer'),
         https: require.resolve("https-browserify"),
         http: require.resolve("stream-http"),
-        crypto: require.resolve("crypto-browserify")
+        crypto: require.resolve("crypto-browserify"),
+        "constants": false,
+        "path": false,
+        "os": false
     };
     config.plugins.push(
         new webpack.ProvidePlugin({
