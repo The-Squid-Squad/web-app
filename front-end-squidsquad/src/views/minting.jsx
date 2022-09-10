@@ -1,16 +1,32 @@
 import React, {useState} from 'react';
 const NodeRSA = require('node-rsa');
-const key = new NodeRSA(`-----BEGIN RSA PRIVATE KEY-----${process.env.REACT_APP_RSA_PRIVATE}-----END RSA PRIVATE KEY-----`);
+const key = new NodeRSA(`${process.env.REACT_APP_RSA_PRIVATE}`);
 const { ethers } = require("ethers");
 const deployed_contract = require("../assets/abi/SquidSquad.json");
 
-console.log(`${process.env.REACT_APP_RSA_PRIVATE}`)
-
+// key.importKey(`${process.env.REACT_APP_RSA_PRIVATE}`, 'pkcs1-pem');
+key.setOptions({encryptionScheme: 'pkcs1'})
 export default function Minting() {
 
   // state variables
   const [toggleMint, setToggleMint] = useState(false);
 
+  const postData = async (url = '', data = {}) => {
+    const response = await fetch(url, {
+      method: 'POST', 
+      mode: 'cors', 
+      cache: 'no-cache', 
+      credentials: 'same-origin', 
+      headers: {
+        'Content-Type': 'application/json'   
+      },
+      redirect: 'follow', 
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(data) 
+    });
+    return response; 
+  }
+  
   const connect = async () => {
     if (typeof window.ethereum !== "undefined") {
       try {
@@ -35,11 +51,19 @@ export default function Minting() {
       const contract = new ethers.Contract(contractAddress, deployed_contract.abi, signer);
       try {
         await fetch(process.env.REACT_APP_TOKEN_URI_ROUTE)
-          .then(res => { return res.json() })
-          .then(async encryptedTokenURI => {
-            console.log(encryptedTokenURI.data)
+          .then( res => { return res.json() })
+          .then( async encryptedTokenURI => {
+            console.log("encrypted  " + encryptedTokenURI.data)
             const decryptedTokenURI = key.decrypt(encryptedTokenURI.data, 'utf8');
-            await contract.claim(decryptedTokenURI, {value: 20000000000000000n});
+    
+            console.log("decrypted " +decryptedTokenURI)
+            // await contract.claim(decryptedTokenURI, {value: 20000000000000000n})
+              // .catch( () => {
+              //   postData('http://localhost:8000/ipfs/fallback', { returnId: 42 })
+              //   .then( data => {
+              //     console.log(data); 
+              //   // });
+              // })
           })
       
         //setToggleMint(true)

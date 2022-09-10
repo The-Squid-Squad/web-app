@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Network, Alchemy} from  "alchemy-sdk";
+const { ethers } = require("ethers");
+const deployed_contract = require("../assets/abi/SquidSquad.json");
 
 const settings = {
   apiKey: "gMtmGgLCUM1kaR-ff4Qy3bVh2Rh3Z9AP",
@@ -10,36 +12,49 @@ const alchemy = new Alchemy(settings)
 
 export default function Gallery() {
   const [allnfts, setAllfts ] = useState([]);
+  const [allOwners, setAllOwners ] = useState([]);
   const [update, setUpdate ] = useState(1);
 
   const getNFTs = async () => {
     let SquidSquadNFTs = await alchemy.nft.getNftsForContract("0xcfC64FcEa7507F9E31a74A49884741BCD5E0A25A") 
 
     let nfts = []
+    let owners = []
     for(let i = 0; i < 10; i++){ // SquidSquadNFTs.nfts.length-1
       let id = SquidSquadNFTs.nfts[i].tokenId
       alchemy.nft.getNftMetadata(
         "0xcfC64FcEa7507F9E31a74A49884741BCD5E0A25A",
         `${id}`
       )
-      .then(res => {
+      .then(async res => {
+        try {
+          await alchemy.nft.getOwnersForNft("0xcfC64FcEa7507F9E31a74A49884741BCD5E0A25A", `${res.tokenId}`)
+          .then(res => {
+            console.log(res)
+            owners.push(res)
+          });  
+        } catch (error) {
+          console.log(error)
+        }
         nfts.push(res)
       })
     }
     setAllfts(nfts)
+    setAllOwners(owners)
     console.log(nfts)
-    return nfts
+    console.log(owners)
+    return [nfts, owners]
   }
-  useEffect(() => { 
-    getNFTs()
-  },[]); 
-  useEffect(() => { 
-    setTimeout(() => {
-      console.log("uodated")
-      setUpdate(update + 1)
-    }, 1000);
-  });  
-
+    useEffect(() => { 
+      getNFTs()
+    },[]); 
+    useEffect(() => { 
+      setTimeout(() => {
+        console.log("uodated")
+        setUpdate(update + 1)
+      }, 1000);
+    });  
+    
   return ( 
     <>
       <div id='gallery-container'>

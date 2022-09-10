@@ -85,7 +85,8 @@ const Header = () => {
         <div id='header-background'>
         {/* <a href='/home'><img id="logo" src={SquidLogo} alt="Logo-home"></img></a> */}
 
-            <nav>
+          <div id="wrapper">
+          <nav>
                 <ul id='nav-ul'>
                     <li id='nav-li'>
                     <button id='navbtn' color='primary' size='sm' onClick={() => { history.push('/home'); window.location.reload(); }}>
@@ -113,32 +114,17 @@ const Header = () => {
                     </button>
                     </li> 
                 </ul>              
-            </nav>      
+            </nav>    
+          </div> 
         </div>      
     </div>
   
       <style>{`
-        .wallet-buttons {
-            padding-right: 21px;
-            float: right;
-            text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
-        }
-        .app-buttons__login {
-            font-size: 21px;
-           
-            background-color: #ed9624;   
-            color: white;  
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-        }
-        .app-buttons__logout {
-            font-size: 21px;
-            float: right; 
-            color: white;
-            background-color: #211212;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-        }
-        .app-details {
-            float: right; 
+        #wrapper {
+          width: 55px;
+          float: left;
+          padding-left: 100px;
+          padding-right: 30px;
         }
         nav {
             margin-top: 299px;
@@ -147,15 +133,11 @@ const Header = () => {
         #nav-ul {
             display: flex;
             list-style: none;
-            justify-content: right;  
-            margin-left: 195px;
-            margin-right: 70px;
-          
-           
+            justify-content: center;  
+            padding left: 50px;
         }
         #nav-li {
-            margin-right: 1.1%;
-            margin-left: 1.1%;
+          
             
         }
         #navbtn {
