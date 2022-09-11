@@ -84,8 +84,9 @@ const Header = () => {
     <div id='header-wrapper'>
         <div id='header-background'>
         {/* <a href='/home'><img id="logo" src={SquidLogo} alt="Logo-home"></img></a> */}
-
+    
           <div id="wrapper">
+          
           <nav>
                 <ul id='nav-ul'>
                     <li id='nav-li'>
@@ -121,14 +122,16 @@ const Header = () => {
   
       <style>{`
         #wrapper {
-          width: 55px;
-          float: left;
-          padding-left: 100px;
-          padding-right: 30px;
+            width: 100%;
+            float: left;
+            padding-left: 100px;
+            padding-right: 30px;
+            padding-bottom: 75px;
         }
         nav {
-            margin-top: 299px;
-        
+            margin-top: 185px;
+            margin-left: 5px;
+            width: 3%;
         }
         #nav-ul {
             display: flex;
@@ -142,26 +145,25 @@ const Header = () => {
         }
         #navbtn {
             background-color: #86fce5;
-            font-size: 18px;
-            border-color: #00ffd5;
-            border-radius: 8px;
+            font-size: 19px;
+            border-color: #03fce8;
+            border-radius: 12px;
             opacity: 0.8;
         }
         #navbtn:hover {opacity: 1}
         #logo {
-            padding-left: 75px;
-            height: 212px;
-            width: 300x;
+
         }
         #header-background {
-            height: 350px;
-            max-wdith: 3200px;
-            background-image: url("https://images2.imgbox.com/76/d4/03tsJWwZ_o.jpg");
+            height: 200px;
+            background-repeat: no-repeat;           
+            background-image: url("https://images2.imgbox.com/ba/02/th4QPsFy_o.jpg");
             border-style: solid;
             border-width: 25px;
             border-color: #14021c;
         }
-}
+   
+        
       `}</style>
     </header>
   );

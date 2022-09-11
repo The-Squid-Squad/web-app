@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
-const NodeRSA = require('node-rsa');
-const key = new NodeRSA(`${process.env.REACT_APP_RSA_PRIVATE}`);
 const { ethers } = require("ethers");
 const deployed_contract = require("../assets/abi/SquidSquad.json");
 
-// key.importKey(`${process.env.REACT_APP_RSA_PRIVATE}`, 'pkcs1-pem');
-key.setOptions({encryptionScheme: 'pkcs1'})
+
 export default function Minting() {
 
   // state variables
@@ -14,17 +11,15 @@ export default function Minting() {
   const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
       method: 'POST', 
-      mode: 'cors', 
-      cache: 'no-cache', 
       credentials: 'same-origin', 
       headers: {
         'Content-Type': 'application/json'   
       },
-      redirect: 'follow', 
-      referrerPolicy: 'no-referrer', 
+
       body: JSON.stringify(data) 
     });
-    return response; 
+    console.log(response.json())
+    return response.json(); 
   }
   
   const connect = async () => {
@@ -53,17 +48,14 @@ export default function Minting() {
         await fetch(process.env.REACT_APP_TOKEN_URI_ROUTE)
           .then( res => { return res.json() })
           .then( async encryptedTokenURI => {
-            console.log("encrypted  " + encryptedTokenURI.data)
-            const decryptedTokenURI = key.decrypt(encryptedTokenURI.data, 'utf8');
-    
-            console.log("decrypted " +decryptedTokenURI)
-            // await contract.claim(decryptedTokenURI, {value: 20000000000000000n})
-              // .catch( () => {
-              //   postData('http://localhost:8000/ipfs/fallback', { returnId: 42 })
-              //   .then( data => {
-              //     console.log(data); 
-              //   // });
-              // })
+            console.log(encryptedTokenURI.data.url)
+            await contract.claim(encryptedTokenURI.data.url, {value: 20000000000000000n})
+              .catch( () => {
+                postData('http://localhost:8000/ipfs/fallback', {value: 1})
+                // .then( data => {
+                //   console.log(data); 
+                //  });
+              })
           })
       
         //setToggleMint(true)

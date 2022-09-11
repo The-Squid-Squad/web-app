@@ -55,7 +55,7 @@ export default function Socials() {
         #follow-me {
           height: 220px;
           width: 220px;
-          
+          padding-right: 120px;
         }
         .columnz {
           float: left;
@@ -72,7 +72,7 @@ export default function Socials() {
           clear: both;
           display: table;
         }
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: 800px) {
           .columnz {
             width: 100%;
           }
