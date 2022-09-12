@@ -51,6 +51,9 @@ const CountdownTimer = ({ targetDate }) => {
           color: blue;
           font-size: 21px;
         }
+        span {
+          
+        }
 
       `}</style>
     </>

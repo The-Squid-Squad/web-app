@@ -130,7 +130,7 @@ const Header = () => {
         }
         nav {
             margin-top: 185px;
-            margin-left: 5px;
+            margin-left: 40px;
             width: 3%;
         }
         #nav-ul {
@@ -147,7 +147,7 @@ const Header = () => {
             background-color: #86fce5;
             font-size: 19px;
             border-color: #03fce8;
-            border-radius: 12px;
+            
             opacity: 0.8;
         }
         #navbtn:hover {opacity: 1}
@@ -156,13 +156,20 @@ const Header = () => {
         }
         #header-background {
             height: 200px;
+            width: 100%;
             background-repeat: no-repeat;           
-            background-image: url("https://images2.imgbox.com/ba/02/th4QPsFy_o.jpg");
-            border-style: solid;
-            border-width: 25px;
-            border-color: #14021c;
+            background-image: url("https://images2.imgbox.com/53/fd/IF1rgJuJ_o.jpg");
+            background-size: cover;     
         }
-   
+        @media screen and (max-width: 700px) {
+          #header-background {
+            height: 200px;
+            width: 100%;
+            background-repeat: no-repeat;           
+            background-image: url("https://images2.imgbox.com/da/c9/uJWmyAH4_o.jpg");
+            background-size: cover;     
+        }
+        }
         
       `}</style>
     </header>

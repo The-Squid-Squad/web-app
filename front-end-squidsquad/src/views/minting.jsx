@@ -40,7 +40,7 @@ export default function Minting() {
   
   const execute = async () => {
     if (typeof window.ethereum !== "undefined") {
-      let contractAddress = "0xcfC64FcEa7507F9E31a74A49884741BCD5E0A25A";
+      let contractAddress = "0xE10D77A5811347cBF73B7E8DacEE6Bc819311c01";
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(contractAddress, deployed_contract.abi, signer);

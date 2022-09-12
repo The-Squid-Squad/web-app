@@ -6,16 +6,17 @@ export default function Home(props) {
   return (
     <>
       <div id='landing-main'>
-          <h2>Squid Squad!</h2>
           <h3>Official launch in..</h3>
+          
           <img id='countdown-squid' src='https://images2.imgbox.com/d9/db/nwjDzc1m_o.png'></img>
           <CountdownTimer  />
       </div>
       <div id='landing-wrapper'>
         <div id='landing-about' class="row">
-          <div className="column">
-            <img id='landing-about-img' src="https://images2.imgbox.com/63/f9/aQx8rL2a_o.jpg" alt="Squid Squad" />
+          <div id='about-img' className="column">
+            {/* <img id='landing-about-img' src="https://images2.imgbox.com/63/f9/aQx8rL2a_o.jpg" alt="Squid Squad" /> */}
           </div>
+
           <div className="column">
             <h3 id='landing-desc'>Beauty</h3>
             <p id='landing-desc' className='desc-text'>These beautiful profesionally created 3-d models mixed with randomness will leave you breatheless.
@@ -35,17 +36,17 @@ export default function Home(props) {
       </div>
 
       <div id='landing-news'>
-          <h1>News</h1>
-          <h2>- Squid Gang go’s meta</h2>
-          <h2>- Genesis Squids launch</h2>
+          <h3>News</h3>
+          <p>Squid Squad goes Meta</p>
+          <p>Genesis Squids launch</p>
       </div>
 
       <div id='landing-timeline'>
-          <h1>Dev roadmap</h1>
-          <h2>-	Genesis launch</h2>
-          <h2>-	Holder owner pages (Squid profiles, ?)</h2>
-          <h2>-	Rental market</h2>
-          <h2>-	SquidVerse (metaverse portal)</h2>
+          <h3>Dev roadmap</h3>
+          <p>Genesis launch</p>
+          <p>Squid Profile</p>
+          <p>Rental market</p>
+          <p>SquidVerse (metaverse portal)</p>
       </div>
 
       <style>{`
@@ -68,11 +69,15 @@ export default function Home(props) {
           padding-bottom: 30px;
           height: auto;
         }
-        #landing-about-img {
-          margin-left: 30px;
-          height: 600px;
-          width: 440px;
+        #about-img {
+          height:850px;
+          width: 570px;
+          background-repeat: no-repeat;           
+          background-image: url("https://images2.imgbox.com/63/f9/aQx8rL2a_o.jpg");
+          background-size: cover; 
+          margin-left: 125px;
         }
+
         #landing-timeline {
           padding-bottom: 50px;
         }
@@ -82,11 +87,12 @@ export default function Home(props) {
         }
         .column {
           float: left;
-          width: 40.33%;
-          padding: 5px;
+          width: 42.33%;
+          padding-left: 2%;
+          padding-right: 2%;
         }
         .row {
-          
+          padding-right:140px;
         } 
 
         /* Clear floats after image containers */
@@ -95,18 +101,35 @@ export default function Home(props) {
           clear: both;
           display: table;
         }
-        @media screen and (max-width: 1100px) {
+        @media screen and (max-width: 900px) {
           .column {
             width: 100%;
           }
+          #about-img {
+            height:600px;
+            width: 386px;
+            background-repeat: no-repeat;           
+            background-image: url("https://images2.imgbox.com/d1/af/9tBrSbzY_o.jpg");
+            background-size: cover; 
         }
-
+        }
         #landing-desc {
-          padding-left: 70px;
-          padding-right: 70px;
+          float: right;
+          width: 330px;
+          margin-right: 30px;
         }
         .desc-text{
           padding-bottom: 15px;
+          margin-right: 120px;
+        }
+        @supports (background-clip: text) {
+          h3, span {
+            font-size: 32px;
+            background-image: linear-gradient(180deg, #2bc9cf, #9e2979);
+            background-clip: text;
+            color: transparent;
+          }
+
         }
 
       `}</style>
