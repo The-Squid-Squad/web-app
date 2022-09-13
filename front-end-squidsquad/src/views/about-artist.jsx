@@ -25,13 +25,10 @@ export default function AboutArtist() {
         height: auto;
         padding-left: 100px;
       }
-      #spacer {
-       width: 100px;
-       
-      }
+ 
       #artist-img {
-        height:600px;
-        width: 600px;
+        height:500px;
+        width: 370px;
         background-repeat: no-repeat;           
         background-image: url("https://images2.imgbox.com/91/dd/2IrXhhdD_o.jpg");
         background-size: cover; 
@@ -39,25 +36,25 @@ export default function AboutArtist() {
       }
       #artist-title {
         height: 300px;
-        width: 400px;
-        margin-left: 100px;
-        margin-top: 30px;
+        width: auto;
+        
+       
        
       }
       .title {
         height:300px;
-        width: 600px;
+        width: 100%;
         background-repeat: no-repeat;           
         background-image: url("https://images2.imgbox.com/87/da/jcxb34U7_o.png");
-        background-size: cover; 
+        background-size: 99%; 
       }
       .column {
       float: right;
-      width: 37.33%;
-      padding: 5px;
+      width: 40.33%;
+      padding-right: 10%;
       }
       .row {
-        margin-right: 22%;
+        margin-right: 12%;
       }
 
     /* Clear floats after image containers */
@@ -72,11 +69,12 @@ export default function AboutArtist() {
       
       }
       #artist-img {
-        height:350px;
-        width: 350px;
+        height:auto%;
+        width: 400px;
         background-repeat: no-repeat;           
         background-image: url("https://images2.imgbox.com/15/10/c3OMo4Rw_o.jpg");
         background-size: cover; 
+        margin-right: 15%;
        
       }
       #artist-text {
@@ -90,19 +88,20 @@ export default function AboutArtist() {
         width: 380px;
         background-repeat: no-repeat;           
         background-image: url("https://images2.imgbox.com/4c/76/1o54E9VD_o.png");
-        background-size: cover; 
-        margin-left: 48px;
+        background-size: 90%; 
+        margin-left: 40px;
       }
       #artist-title {
         height: auto;
         width: 300px;
-        
+        padding-left: 64px;
        
       }
       #contain {
-        width: 400px;
+        width: auto;
         height: auto;
-        padding-left: 50px
+        display: flex;
+          justify-content: center; 
       }
 
     }

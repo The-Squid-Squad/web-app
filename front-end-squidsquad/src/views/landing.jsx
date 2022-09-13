@@ -87,7 +87,7 @@ export default function Home(props) {
         }
         .column {
           float: left;
-          width: 42.33%;
+          width: 34.33%;
           padding-left: 2%;
           padding-right: 2%;
         }

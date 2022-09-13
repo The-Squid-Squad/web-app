@@ -72,7 +72,7 @@ export default function Gallery() {
       <div id='gallery-container'>
         <div class="row">
           {allnfts.map(nft => {
-
+ 
             return (
               <>             
                 <div id='nft-card' className="column" >
@@ -111,13 +111,14 @@ export default function Gallery() {
         #gallery-container {
           padding-bottom: 300px;
           padding-top: 35px;
+          padding-left: 6%;
         }
         #btn-attributes {
           font-size: 16px;
         }
         #nft-card {
           height: auto;
-          width: 350px;
+          width: 300px;
           border-style: solid;
           border-color: cyan;
           border-width: 1px;
@@ -155,15 +156,11 @@ export default function Gallery() {
         } 
         .column {
             float: left;
-            width: 350px;
+            width: 24%;
             padding: 5px;
         }
         .row {
-          display: grid;
-          justify-content: center;
-          justify-items: center;
-          grid-template-columns: 545px 545px 545px;
-          grid-template-rows: auto;
+
         }
 
         /* Clear floats after image containers */
@@ -176,6 +173,22 @@ export default function Gallery() {
           .column {
             width: 100%;
           }
+          .row {
+            padding-right: 20px;
+          }
+          #nft-card {
+          height: auto;
+          width: 300px;
+          padding: 15px;
+         
+          }
+          #gallery-container {
+          padding-bottom: 90px;
+          padding-top: 35px;
+          width: auto;
+          height: auto;
+          padding-right: 20px;
+        }
         }
       `}</style>
     </>
