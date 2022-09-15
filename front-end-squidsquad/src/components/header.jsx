@@ -126,7 +126,7 @@ const Header = () => {
             float: left;
             padding-left: 100px;
             padding-right: 30px;
-            padding-bottom: 75px;
+            margin-bottom: 35px;
         }
         nav {
             margin-top: 185px;
@@ -161,15 +161,18 @@ const Header = () => {
             background-image: url("https://images2.imgbox.com/53/fd/IF1rgJuJ_o.jpg");
             background-size: cover;     
         }
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 990px) {
           #header-background {
             height: 200px;
             width: 100%;
             background-repeat: no-repeat;           
             background-image: url("https://images2.imgbox.com/da/c9/uJWmyAH4_o.jpg");
             background-size: cover;     
-        }
-        }
+          }
+          #wrapper {
+            margin-bottom: 0px;
+          }
+      }
         
       `}</style>
     </header>

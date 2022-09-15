@@ -8,11 +8,9 @@ export default function AboutArtist() {
         <div id='artist-img' className="column">
           
         </div>
-        <div id='spacer' className="column">
-          
-        </div>
+
         <div id='artist-text' className="column">
-          <div className='title'></div>
+          <div id='title-image' className='title'></div>
           
           <p id='artist-title'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
@@ -23,7 +21,8 @@ export default function AboutArtist() {
       #contain {
         width: auto;
         height: auto;
-        padding-left: 100px;
+        display: grid;
+        align-items: center; 
       }
  
       #artist-img {
@@ -37,24 +36,26 @@ export default function AboutArtist() {
       #artist-title {
         height: 300px;
         width: auto;
-        
-       
-       
+
       }
       .title {
         height:300px;
         width: 100%;
         background-repeat: no-repeat;           
-        background-image: url("https://images2.imgbox.com/87/da/jcxb34U7_o.png");
+        background-image: url("https://images2.imgbox.com/87/16/zAnnhdVO_o.png");
         background-size: 99%; 
+        
       }
       .column {
       float: right;
       width: 40.33%;
       padding-right: 10%;
+      
       }
       .row {
         margin-right: 12%;
+        
+        
       }
 
     /* Clear floats after image containers */
@@ -62,25 +63,32 @@ export default function AboutArtist() {
       content: "";
       clear: both;
       display: table; 
+      text-align: center;
     }
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1175px) {
       .column {
         width: 100%;
-      
+        
+       
+      }
+      .row {
+        width: 100%;
+       
       }
       #artist-img {
-        height:auto%;
-        width: 400px;
+        height: 275px;
+        width: 275px;
+        margin-top: 50px;
+        margin-left: 0px;
         background-repeat: no-repeat;           
-        background-image: url("https://images2.imgbox.com/15/10/c3OMo4Rw_o.jpg");
-        background-size: cover; 
-        margin-right: 15%;
-       
+        background-image: url("https://images2.imgbox.com/3d/59/bjlkquZD_o.jpg");
+        background-size: auto; 
+        text-align:center;
       }
       #artist-text {
         height:auto;
         width: 420px;
-        
+        padding-bottom: 120px;
        
       }
       .title {
@@ -89,22 +97,68 @@ export default function AboutArtist() {
         background-repeat: no-repeat;           
         background-image: url("https://images2.imgbox.com/4c/76/1o54E9VD_o.png");
         background-size: 90%; 
-        margin-left: 40px;
+        margin-left: 75px;
       }
       #artist-title {
         height: auto;
         width: 300px;
-        padding-left: 64px;
+        margin-left: 90px;
        
       }
       #contain {
         width: auto;
         height: auto;
-        display: flex;
-          justify-content: center; 
+        display: grid;
+        align-items: center; 
+        margin-right: 10%;
       }
 
     }
+    @media screen and (max-width: 990px) {
+      .column {
+        display: grid;
+        align-items: center; 
+        
+        
+      }
+      #artist-img {
+      
+       
+      }
+      .title {
+        height: 225px;
+        width: 380px;
+        background-repeat: no-repeat;           
+        background-image: url("https://images2.imgbox.com/4c/76/1o54E9VD_o.png");
+        background-size: 90%; 
+        align-content: center;
+      }
+      #artist-title {
+        height: auto;
+        width: 300px;
+        margin 5px;
+       
+      }
+      #contain {
+        
+      }
+
+    }
+    @media screen and (max-width: 990px) {
+      .column {
+        margin-right: 180px;  
+        padding-right: 11%;  
+        
+      }
+      .row {
+        margin-right: 0%
+        
+      }
+      #artist-img {
+        margin-right: 215px;   
+      }
+    }
+
     `}</style>
     </>
   )

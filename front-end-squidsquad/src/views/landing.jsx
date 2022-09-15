@@ -8,7 +8,7 @@ export default function Home(props) {
       <div id='landing-main'>
           <h3>Official launch in..</h3>
           
-          <img id='countdown-squid' src='https://images2.imgbox.com/d9/db/nwjDzc1m_o.png'></img>
+          <img id='countdown-squid' src='https://images2.imgbox.com/ae/4f/hqvffcu7_o.png'></img>
           <CountdownTimer  />
       </div>
       <div id='landing-wrapper'>
@@ -55,42 +55,50 @@ export default function Home(props) {
           height: auto;
           display: flex;
           justify-content: center; 
-          padding-right: 5%;
+          margin-left: 13%;
+          padding-left: 50px;
         }
+        
         #landing-main {
           height: 350px;
         }
+        
         #landing-news {
           height: 250px;
           padding-top: 100px;
         }
+        
         #landing-about {
           padding-top: 12rem;
           padding-bottom: 30px;
           height: auto;
         }
+        
         #about-img {
-          height:850px;
-          width: 570px;
+          height: 900px;
+          width: 450px;
           background-repeat: no-repeat;           
-          background-image: url("https://images2.imgbox.com/63/f9/aQx8rL2a_o.jpg");
+          background-image: url("https://images2.imgbox.com/d1/af/9tBrSbzY_o.jpg");
           background-size: cover; 
-          margin-left: 125px;
+          margin-right: 245px;
         }
 
         #landing-timeline {
           padding-bottom: 50px;
         }
+        
         #countdown-squid {
           height: 212px;
           width: 180px;
         }
+        
         .column {
           float: left;
-          width: 34.33%;
+          width: 25.33%;
           padding-left: 2%;
           padding-right: 2%;
         }
+        
         .row {
           padding-right:140px;
         } 
@@ -101,27 +109,18 @@ export default function Home(props) {
           clear: both;
           display: table;
         }
-        @media screen and (max-width: 900px) {
-          .column {
-            width: 100%;
-          }
-          #about-img {
-            height:600px;
-            width: 386px;
-            background-repeat: no-repeat;           
-            background-image: url("https://images2.imgbox.com/d1/af/9tBrSbzY_o.jpg");
-            background-size: cover; 
-        }
-        }
+        
         #landing-desc {
           float: right;
           width: 330px;
           margin-right: 30px;
         }
+        
         .desc-text{
           padding-bottom: 15px;
           margin-right: 120px;
         }
+        
         @supports (background-clip: text) {
           h3, span {
             font-size: 32px;
@@ -130,7 +129,58 @@ export default function Home(props) {
             color: transparent;
           }
 
+
+        @media screen and (max-width: 1420px) {
+          .column {
+            width: 22%;
+          }
+          #about-img {
+            height:600px;
+            width: 386px;
+            background-repeat: no-repeat;           
+            background-image: url("https://images2.imgbox.com/d1/af/9tBrSbzY_o.jpg");
+            background-size: auto%; 
+          }
         }
+
+        @media screen and (max-width: 1245px) {
+          .column {
+            width: 100%;
+          
+          }
+          #about-img {
+            height:600px;
+            width: 346px;
+            background-repeat: no-repeat;           
+            background-image: url("https://images2.imgbox.com/d1/af/9tBrSbzY_o.jpg");
+            background-size: auto%; 
+            margin-right: 0px;
+          }
+          .row {
+          padding-right:46%;
+          padding-left:25%;
+          
+          } 
+          .desc-text{
+          padding-bottom: 15px;
+          margin-right: 0px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .row {
+          padding-right:0%;
+          margin-right:30%;
+          padding-left:0%;
+          
+          } 
+
+        }
+
+
+
+
+        
 
       `}</style>
     </>

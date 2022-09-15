@@ -66,7 +66,14 @@ export default function Gallery() {
     
   return ( 
     <>
-      <button id='btn-attributes' onClick={showAttrCard}>Show Attributes</button>
+      {showAttr === false &&
+        <button id='btn-attributes' onClick={showAttrCard}>Hide Attributes</button>
+      }
+      {showAttr === true &&
+        <button id='btn-attributes' onClick={showAttrCard}>Show Attributes</button>
+      }
+      
+
       {/* <p>search coming soon</p>
       <button onClick={getNFTs} disabled={true}>Search NFTs</button> */}
       <div id='gallery-container'>
@@ -111,7 +118,8 @@ export default function Gallery() {
         #gallery-container {
           padding-bottom: 300px;
           padding-top: 35px;
-          padding-left: 6%;
+          margin-left: 6%;
+
         }
         #btn-attributes {
           font-size: 16px;
@@ -122,7 +130,7 @@ export default function Gallery() {
           border-style: solid;
           border-color: cyan;
           border-width: 1px;
-          border-radius: 25px;
+        
           margin: 10px;
           background-image: linear-gradient(cyan, purple);
         }
@@ -148,7 +156,7 @@ export default function Gallery() {
 
         }
         #nft-img {
-          width: 300px;
+          width: 290px;
           height: 300px;
           background-color: white;
           border-radius: 12px;
@@ -157,7 +165,7 @@ export default function Gallery() {
         .column {
             float: left;
             width: 24%;
-            padding: 5px;
+            margin-right: 25px;
         }
         .row {
 
@@ -169,12 +177,21 @@ export default function Gallery() {
           clear: both;
           display: table; 
         }
-        @media screen and (max-width: 900px) {
+
+
+        @media screen and (max-width: 1500px) {
+          #gallery-container {
+            margin-left: 12%;
+          }
+        }
+
+        @media screen and (max-width: 600px) {
           .column {
             width: 100%;
           }
           .row {
-            padding-right: 20px;
+      
+          
           }
           #nft-card {
           height: auto;
@@ -185,11 +202,14 @@ export default function Gallery() {
           #gallery-container {
           padding-bottom: 90px;
           padding-top: 35px;
-          width: auto;
-          height: auto;
-          padding-right: 20px;
+          width: 100%;
+          height: 100%;
+          margin-left: 1%;
+          margin-right: 14%
         }
         }
+
+
       `}</style>
     </>
   )
