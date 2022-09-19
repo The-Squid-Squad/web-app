@@ -48,7 +48,8 @@ export default function Gallery() {
   }
     useEffect( () => { 
       getNFTs()
-    },[]); 
+    },[]);
+     
     useEffect( () => { 
       setTimeout(() => {
         console.log("updated")
@@ -95,13 +96,13 @@ export default function Gallery() {
                
                       <div hidden={showAttr}>
                         <h3>Attributes</h3>
-                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[0]?"Homeland: "+nft.rawMetadata.attributes[0].value : "no home"}</p>
-                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[1]?"Zodiac: "+nft.rawMetadata.attributes[1].value : "no home"}</p>
-                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[2]?"Beauty: "+nft.rawMetadata.attributes[2].value : "no home"}</p>
-                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[3]?"Charm: "+nft.rawMetadata.attributes[3].value : "no home"}</p>
-                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[4]?"Intellect: "+nft.rawMetadata.attributes[4].value : "no home"}</p>
-                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[5]?"Wisdom: "+nft.rawMetadata.attributes[5].value : "no home"}</p>
-                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[6]?"Strength: "+nft.rawMetadata.attributes[6].value : "no home"}</p>
+                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[0]?"Homeland: "+nft.rawMetadata.attributes[0].value : "no home land"}</p>
+                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[1]?"Zodiac: "+nft.rawMetadata.attributes[1].value : "none"}</p>
+                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[2]?"Beauty: "+nft.rawMetadata.attributes[2].value : "none"}</p>
+                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[3]?"Charm: "+nft.rawMetadata.attributes[3].value : "none"}</p>
+                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[4]?"Intellect: "+nft.rawMetadata.attributes[4].value : "none"}</p>
+                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[5]?"Wisdom: "+nft.rawMetadata.attributes[5].value : "none"}</p>
+                        <p>{nft.rawMetadata && nft.rawMetadata.attributes[6]?"Strength: "+nft.rawMetadata.attributes[6].value : "none"}</p>
                       </div>
                     </div>
                     

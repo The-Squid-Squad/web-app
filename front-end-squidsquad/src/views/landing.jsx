@@ -81,6 +81,7 @@ export default function Home(props) {
           background-image: url("https://images2.imgbox.com/d1/af/9tBrSbzY_o.jpg");
           background-size: cover; 
           margin-right: 245px;
+          border-style: groove;
         }
 
         #landing-timeline {
