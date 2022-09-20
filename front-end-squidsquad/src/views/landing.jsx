@@ -151,7 +151,7 @@ export default function Home(props) {
           }
           #about-img {
             height:600px;
-            width: 346px;
+            width: 330px;
             background-repeat: no-repeat;           
             background-image: url("https://images2.imgbox.com/d1/af/9tBrSbzY_o.jpg");
             background-size: auto%; 
@@ -171,7 +171,7 @@ export default function Home(props) {
         @media screen and (max-width: 600px) {
           .row {
           padding-right:0%;
-          margin-right:30%;
+          margin-right:32%;
           padding-left:0%;
           
           } 

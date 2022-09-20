@@ -85,9 +85,10 @@ const Header = () => {
     <div id='header-wrapper'>
         <div id='header-background'>
         {/* <a href='/home'><img id="logo" src={SquidLogo} alt="Logo-home"></img></a> */}
-        <div id='enterDraw'>
-        <p id='enterDrawText'>8 Free NFT's</p>
-        <button id='enterDrawBtn'>Enter draw</button>
+        <div id='enterDraw' className='pulse-grow-on-hover link button-85'>
+        <p id='enterDrawText'>Win 1 of 8 NFTs</p>
+        <p id='enterDrawTextSmall'>free entry every 2nd mint!</p>
+        <button id='enterDrawBtn' className='button-85'>Enter draw</button>
         </div>
         
         <div id="wrapper">
@@ -132,8 +133,7 @@ const Header = () => {
             padding-right: 30px;
             margin-bottom: 35px;
         }
-        nav {
-            
+        nav {       
             margin-left: 40px;
             width: 3%;
         }
@@ -150,22 +150,21 @@ const Header = () => {
         #navbtn {
             background-color: #86fce5;
             font-size: 19px;
-            border-color: #03fce8;
-            
+            border-color: #03fce8;     
             opacity: 0.8;
         }
         #navbtn:hover {opacity: 1}
 
         #enterDrawBtn {
           font-size: 16px;
-          margin-bottom: 25px;
-          background-color: black;
+          margin-bottom: 3px;
+          background-color: purple;
           border-color: cyan;
           color: cyan;
         }
         #enterDraw {
           float: right;
-          margin-top: 10px;
+          margin-top: 3px;
           margin-right: 35px;
           font-size: 22px;
           background-color : purple;
@@ -173,11 +172,54 @@ const Header = () => {
           border-color: cyan;
           text-align: center;
           width: 100px;
+          opacity: 80%;
         }
-        #enterDrawText {
-          font-size: 22px;
-          color: yellow
+        .link:hover{
+          text-decoration: none;
+          color: #000;
+        }
 
+      /*===================*/
+      /* PULSE GROW
+      /*===================*/
+      @-webkit-keyframes pulse-grow-on-hover {
+        to {
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+        }
+      }
+      @keyframes pulse-grow-on-hover {
+        to {
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+        }
+      }
+      .pulse-grow-on-hover {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      }
+      .pulse-grow-on-hover:hover, .pulse-grow-on-hover:focus, .pulse-grow-on-hover:active {
+        -webkit-animation-name: pulse-grow-on-hover;
+        animation-name: pulse-grow-on-hover;
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+      }
+        #enterDrawText {
+          font-size: 20px;
+          color: yellow
+        }
+        #enterDrawTextSmall {
+          font-size: 13px;
+          color: #6bfc51;
         }
         #logo {
 
@@ -205,7 +247,73 @@ const Header = () => {
             margin-right: 2px;
           }
       }
+
+        .button-85 {
         
+          border: none;
+          outline: none;
+          color: rgb(255, 255, 255);
+          background: #111;
+          cursor: pointer;
+          position: relative;
+          z-index: 0;
+          border-radius: 10px;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+        }
+
+        .button-85:before {
+          content: "";
+          background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+          );
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          background-size: 400%;
+          z-index: -1;
+          filter: blur(5px);
+          -webkit-filter: blur(5px);
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          animation: glowing-button-85 20s linear infinite;
+          transition: opacity 0.3s ease-in-out;
+          border-radius: 10px;
+        }
+
+        @keyframes glowing-button-85 {
+          0% {
+            background-position: 0 0;
+          }
+          50% {
+            background-position: 400% 0;
+          }
+          100% {
+            background-position: 0 0;
+          }
+        }
+
+        .button-85:after {
+          z-index: -1;
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #222;
+          left: 0;
+          top: 0;
+          border-radius: 10px;
+        } 
       `}</style>
     </header>
   );

@@ -10,6 +10,7 @@ export default function Minting() {
   // state variables
   const [toggleMint, setToggleMint] = useState(false);
   const [buyCrypto, setBuyCrypto] = useState(true);
+  const [connected, setConnected] = useState(false);
   const [tknId, setTknId] = useState(0)
   const [update, setUpdate ] = useState(1);
 
@@ -34,12 +35,16 @@ export default function Minting() {
       } catch (error) {
         console.log(error);
       }
-      document.getElementById("connectButton").innerHTML = "Connected";
       const account_address = await window.ethereum.request({ method: "eth_accounts" });
+      if(account_address.length >= 1){
+        setConnected(true)
+      } else {
+        setConnected(false)
+      }
+      
       console.log(account_address);
     } else {
-      document.getElementById("connectButton").innerHTML =
-        "Please install MetaMask";
+      window.alert( "Please install MetaMask")  
     }
   }
 
@@ -80,6 +85,7 @@ export default function Minting() {
     }
   }
 
+  // experimental 
   useEffect( () => { 
     setTimeout(() => {
       console.log(`tknId = ${tknId}`)
@@ -90,36 +96,49 @@ export default function Minting() {
   return (
     <> 
       <div id='buyWrapper'>
-        <p>New to cryptocurrency?</p>
-        <p>Buy your first crypto right here without going anywhere</p>
+        <p id='mint-flow-headers'>Buy crypto here.</p>
         
         {buyCrypto === false &&
-          <button onClick={toggleBuyCrypto}>hide buy crypto</button>
+          <button className='btn-animate btn-buy btn' onClick={toggleBuyCrypto}>Close Buy Crypto</button>
         }
         {buyCrypto === true &&
-          <button onClick={toggleBuyCrypto}>buy crypto</button>
+          <button className='btn-animate btn-buy btn' onClick={toggleBuyCrypto}>Buy Crypto</button>
         }
 
-        <div hidden={buyCrypto}>
+        <div id='buy-container' hidden={buyCrypto}>
           <BuyCrypto  />
         </div>
       </div>
-      
+      {connected === false &&
       <div id='connectButton'>
-        <p>Connect your wallet to begin minting</p>
-        <button disabled={toggleMint} onClick={connect}>Connect</button>
+        <p id='mint-flow-headers'>Connect your wallet.</p>
+        <button className='btn-animate btn-connect btn' id='connectedButton' disabled={toggleMint} onClick={connect}>Connect</button>
       </div>
-
-      <div  id='executeButton' >
-        <p>Mint a random Squid!!!</p>
-        <button disabled={toggleMint} onClick={execute}>Mint</button>
+      }
+      {connected === true &&
+      <div id='connectButton'>
+        <p id='mint-flow-headers'>Connect your wallet.</p>
+        <button className='btn-animate btn-connect btn' id='connectedButton' disabled={toggleMint} onClick={connect}>Connected</button>
+      </div>
+      }
+      <div id='executeButton' >
+        <p id='mint-flow-headers'>Mint a random Squid!!!</p>
+        <button className='btn-animate btn-mint btn' disabled={toggleMint} onClick={execute}>Mint</button>
       </div>
 
 
      
       <style>{`
         #buyWrapper {
-          margin-top: 10%;
+          margin-top: 3%;
+        }
+        #buy-container {
+          margin: 15px;
+        }
+        #mint-flow-headers {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 21px;
+          
         }
         #executeButton {
           padding-bottom: 120px;
@@ -127,6 +146,60 @@ export default function Minting() {
         #connectButton {
           margin: 55px;
         }
+        .btn {
+          background-color: black;
+          color: white;
+          font-size: 17px;
+          padding: 4px;
+          width: 120px;
+        }
+        .btn-buy {
+          text-decoration: none;
+          border: 1px solid rgb(0, 64, 255);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-connect {
+          text-decoration: none;
+          border: 1px solid rgb(255, 0, 64);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-mint {
+          text-decoration: none;
+          border: 1px solid rgb(0, 255, 191);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-animate:hover {
+          box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
+        }
+
+        .btn-animate:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            120deg,
+            transparent,
+            rgba(146, 148, 248, 0.4),
+            transparent
+          );
+          transition: all 650ms;
+        }
+
+        .btn-animate:hover:before {
+          left: 100%;
+        }
+
+
+        
       `}</style>
     </>
   )
