@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react';
 import history from '../utils/history';
 import Web3 from 'web3';
 
+
 const Header = () => {
     const [isConnected, setIsConnected] = useState(false);
     const [userInfo, setUserInfo] = useState({});
@@ -84,9 +85,12 @@ const Header = () => {
     <div id='header-wrapper'>
         <div id='header-background'>
         {/* <a href='/home'><img id="logo" src={SquidLogo} alt="Logo-home"></img></a> */}
-    
-          <div id="wrapper">
-          
+        <div id='enterDraw'>
+        <p id='enterDrawText'>8 Free NFT's</p>
+        <button id='enterDrawBtn'>Enter draw</button>
+        </div>
+        
+        <div id="wrapper">
           <nav>
                 <ul id='nav-ul'>
                     <li id='nav-li'>
@@ -115,7 +119,7 @@ const Header = () => {
                     </button>
                     </li> 
                 </ul>              
-            </nav>    
+            </nav>  
           </div> 
         </div>      
     </div>
@@ -129,7 +133,7 @@ const Header = () => {
             margin-bottom: 35px;
         }
         nav {
-            margin-top: 185px;
+            
             margin-left: 40px;
             width: 3%;
         }
@@ -151,6 +155,30 @@ const Header = () => {
             opacity: 0.8;
         }
         #navbtn:hover {opacity: 1}
+
+        #enterDrawBtn {
+          font-size: 16px;
+          margin-bottom: 25px;
+          background-color: black;
+          border-color: cyan;
+          color: cyan;
+        }
+        #enterDraw {
+          float: right;
+          margin-top: 10px;
+          margin-right: 35px;
+          font-size: 22px;
+          background-color : purple;
+          border-style: solid;
+          border-color: cyan;
+          text-align: center;
+          width: 100px;
+        }
+        #enterDrawText {
+          font-size: 22px;
+          color: yellow
+
+        }
         #logo {
 
         }
@@ -171,6 +199,10 @@ const Header = () => {
           }
           #wrapper {
             margin-bottom: 0px;
+          }
+          #enterDraw {
+            width: 90px;
+            margin-right: 2px;
           }
       }
         

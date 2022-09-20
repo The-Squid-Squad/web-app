@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from 'react';
+import BuyCrypto from '../components/buyCrypto';
 const { ethers } = require("ethers");
 const deployed_contract = require("../assets/abi/SquidSquad.json");
+
 
 
 export default function Minting() {
 
   // state variables
   const [toggleMint, setToggleMint] = useState(false);
+  const [buyCrypto, setBuyCrypto] = useState(true);
   const [tknId, setTknId] = useState(0)
   const [update, setUpdate ] = useState(1);
 
@@ -69,6 +72,14 @@ export default function Minting() {
     }
   }
 
+  const toggleBuyCrypto = () => {
+    if(buyCrypto == true){
+      setBuyCrypto(false)
+    } else {
+      setBuyCrypto(true)
+    }
+  }
+
   useEffect( () => { 
     setTimeout(() => {
       console.log(`tknId = ${tknId}`)
@@ -78,14 +89,43 @@ export default function Minting() {
 
   return (
     <> 
-      <p>Connect your wallet</p>
-      <button id='connectButton' disabled={toggleMint} onClick={connect}>Connect</button>
-      <p>Mint a random Squid!!!</p>
-      <button id='executeButton' disabled={toggleMint} onClick={execute}>Mint</button>
+      <div id='buyWrapper'>
+        <p>New to cryptocurrency?</p>
+        <p>Buy your first crypto right here without going anywhere</p>
+        
+        {buyCrypto === false &&
+          <button onClick={toggleBuyCrypto}>hide buy crypto</button>
+        }
+        {buyCrypto === true &&
+          <button onClick={toggleBuyCrypto}>buy crypto</button>
+        }
 
+        <div hidden={buyCrypto}>
+          <BuyCrypto  />
+        </div>
+      </div>
+      
+      <div id='connectButton'>
+        <p>Connect your wallet to begin minting</p>
+        <button disabled={toggleMint} onClick={connect}>Connect</button>
+      </div>
+
+      <div  id='executeButton' >
+        <p>Mint a random Squid!!!</p>
+        <button disabled={toggleMint} onClick={execute}>Mint</button>
+      </div>
+
+
+     
       <style>{`
+        #buyWrapper {
+          margin-top: 10%;
+        }
         #executeButton {
-          margin-bottom: 120px;
+          padding-bottom: 120px;
+        }
+        #connectButton {
+          margin: 55px;
         }
       `}</style>
     </>
