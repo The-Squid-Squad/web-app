@@ -15,16 +15,7 @@ export default function Footer() {
                 color: #faffff;
                 padding-top:20px;
             }
-            ul {
-                display: flex;
-                list-style: none;
-                padding-top: 21px;
-            }
-            li {
-                line-height: 12px;
-                margin-right: 11%;
-                margin-left: 11%;
-            }
+
         `}</style>
     </div>
     

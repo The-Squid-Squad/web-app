@@ -8,7 +8,7 @@ const deployed_contract = require("../assets/abi/SquidSquad.json");
 export default function Minting() {
 
   // state variables
-  const [toggleMint, setToggleMint] = useState(false);
+  const [toggleMint, setToggleMint] = useState(true);
   const [buyCrypto, setBuyCrypto] = useState(true);
   const [connected, setConnected] = useState(false);
   const [tknId, setTknId] = useState(0)
@@ -38,8 +38,10 @@ export default function Minting() {
       const account_address = await window.ethereum.request({ method: "eth_accounts" });
       if(account_address.length >= 1){
         setConnected(true)
+        setToggleMint(false)
       } else {
         setConnected(false)
+        setToggleMint(true)
       }
       
       console.log(account_address);
@@ -99,7 +101,7 @@ export default function Minting() {
         <p id='mint-flow-headers'>Buy crypto here.</p>
         
         {buyCrypto === false &&
-          <button className='btn-animate btn-buy btn' onClick={toggleBuyCrypto}>Close Buy Crypto</button>
+          <button className='btn-animate btn-buy btn' onClick={toggleBuyCrypto}>Close</button>
         }
         {buyCrypto === true &&
           <button className='btn-animate btn-buy btn' onClick={toggleBuyCrypto}>Buy Crypto</button>
@@ -112,13 +114,13 @@ export default function Minting() {
       {connected === false &&
       <div id='connectButton'>
         <p id='mint-flow-headers'>Connect your wallet.</p>
-        <button className='btn-animate btn-connect btn' id='connectedButton' disabled={toggleMint} onClick={connect}>Connect</button>
+        <button className='btn-animate btn-connect btn' id='connectedButton' onClick={connect}>Connect</button>
       </div>
       }
       {connected === true &&
       <div id='connectButton'>
         <p id='mint-flow-headers'>Connect your wallet.</p>
-        <button className='btn-animate btn-connect btn' id='connectedButton' disabled={toggleMint} onClick={connect}>Connected</button>
+        <button className='btn-animate btn-connect btn' id='connectedButton' onClick={connect}>Connected</button>
       </div>
       }
       <div id='executeButton' >

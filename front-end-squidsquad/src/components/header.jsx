@@ -164,13 +164,15 @@ const Header = () => {
         }
         #enterDraw {
           float: right;
-          margin-top: 3px;
+          margin-top: 35px;
+        
           margin-right: 35px;
           font-size: 22px;
           background-color : purple;
           border-style: solid;
           border-color: cyan;
           text-align: center;
+          height: 165px;
           width: 100px;
           opacity: 80%;
         }
@@ -225,7 +227,7 @@ const Header = () => {
 
         }
         #header-background {
-            height: 200px;
+            height: 220px;
             width: 100%;
             background-repeat: no-repeat;           
             background-image: url("https://images2.imgbox.com/53/fd/IF1rgJuJ_o.jpg");

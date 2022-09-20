@@ -20,7 +20,7 @@ export default function Gallery() {
 
     let nfts = []
     let owners = []
-    for(let i = 0; i < 14; i++){ // SquidSquadNFTs.nfts.length-1
+    for(let i = 0; i < 11; i++){ // SquidSquadNFTs.nfts.length-1
       let id = SquidSquadNFTs.nfts[i].tokenId
       alchemy.nft.getNftMetadata(
         "0xE10D77A5811347cBF73B7E8DacEE6Bc819311c01",
@@ -68,10 +68,10 @@ export default function Gallery() {
   return ( 
     <>
       {showAttr === false &&
-        <button id='btn-attributes' onClick={showAttrCard}>Hide Attributes</button>
+        <button className='btn-animate' id='btn-attributes' onClick={showAttrCard}>Hide Attributes</button>
       }
       {showAttr === true &&
-        <button id='btn-attributes' onClick={showAttrCard}>Show Attributes</button>
+        <button className='btn-animate' id='btn-attributes' onClick={showAttrCard}>Show Attributes</button>
       }
       
 
@@ -123,8 +123,40 @@ export default function Gallery() {
 
         }
         #btn-attributes {
+          background-color: black;
+          color: white;
           font-size: 16px;
+          padding: 4px;
+          width: 120px;
+          text-decoration: none;
+          border: 1px solid rgb(0, 64, 255);
+          position: relative;
+          overflow: hidden;
         }
+        .btn-animate:hover {
+          box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
+        }
+
+        .btn-animate:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            120deg,
+            transparent,
+            rgba(146, 148, 248, 0.4),
+            transparent
+          );
+          transition: all 650ms;
+        }
+
+        .btn-animate:hover:before {
+          left: 100%;
+        }
+
         #nft-card {
           height: auto;
           width: 300px;
