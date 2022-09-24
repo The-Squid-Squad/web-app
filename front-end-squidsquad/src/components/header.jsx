@@ -81,10 +81,15 @@ const Header = () => {
     };
 
   return (
+    <>
+    {/* <video autoplay muted loop id="myVideo">
+      <source src="rain.mp4" type="video/mp4" />
+    </video> */}
     <header>
     <div id='header-wrapper'>
-        <div id='header-background'>
-        {/* <a href='/home'><img id="logo" src={SquidLogo} alt="Logo-home"></img></a> */}
+        <div class="content" id='header-background'>
+        {/* <div className='pauseVideo'></div> */}
+        {/* https://imgbox.com/FO1lMt2e  pauseplay image */}
         <div id='enterDraw' className='pulse-grow-on-hover link button-85'>
         <p id='enterDrawText'>Win 1 of 8 NFTs</p>
         <p id='enterDrawTextSmall'>free entry every 2nd mint!</p>
@@ -133,6 +138,9 @@ const Header = () => {
             padding-right: 30px;
             margin-bottom: 35px;
         }
+        .pauseButton {
+          
+        }
         nav {       
             margin-left: 40px;
             width: 3%;
@@ -142,10 +150,6 @@ const Header = () => {
             list-style: none;
             justify-content: center;  
             padding left: 50px;
-        }
-        #nav-li {
-          
-            
         }
         #navbtn {
             background-color: #86fce5;
@@ -318,6 +322,7 @@ const Header = () => {
         } 
       `}</style>
     </header>
+    </>
   );
 };
 

@@ -61,10 +61,11 @@ export default function Minting() {
           .then( res => { return res.json() })
           .then( async tokenUri => {
             console.log(tokenUri.data)
-            setTknId(tokenUri.data.internal_tknId)
-            await contract.claim(tokenUri.data.metadata.url, {value: 20000000000000000n})
+            setTknId(tokenUri.data[0])
+            await contract.claim(tokenUri.data[1], {value: 20000000000000000n})
+              .then( () => postData('http://localhost:8000/ipfs/handleMintResult', {value: 'success', id: tokenUri.data[0]}))
               .catch( error => {
-                postData('http://localhost:8000/ipfs/fallback', {value: tokenUri.data.internal_tknId});
+                postData('http://localhost:8000/ipfs/handleMintResult', {value: 'failure', id: tokenUri.data[0]});
                 console.log("error in client returning tokenID: "+error)
               })
           })
@@ -124,7 +125,7 @@ export default function Minting() {
       </div>
       }
       <div id='executeButton' >
-        <p id='mint-flow-headers'>Mint a random Squid!!!</p>
+        <p id='mint-flow-headers'>Mint a random squid!!!</p>
         <button className='btn-animate btn-mint btn' disabled={toggleMint} onClick={execute}>Mint</button>
       </div>
 

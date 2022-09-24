@@ -20,7 +20,7 @@ export default function Gallery() {
 
     let nfts = []
     let owners = []
-    for(let i = 0; i < 11; i++){ // SquidSquadNFTs.nfts.length-1
+    for(let i = 0; i < 12; i++){ // SquidSquadNFTs.nfts.length-1
       let id = SquidSquadNFTs.nfts[i].tokenId
       alchemy.nft.getNftMetadata(
         "0xE10D77A5811347cBF73B7E8DacEE6Bc819311c01",
